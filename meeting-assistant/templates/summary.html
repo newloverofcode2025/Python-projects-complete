@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Meeting Summary{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Meeting Summary</h1>
+
+    <div class="summary-section">
+        <h2>Meeting Details</h2>
+        <ul>
+            <li><strong>Title:</strong> {{ meeting_details.title or 'Not set' }}</li>
+            <li><strong>Date:</strong> {{ meeting_details.date or 'Not set' }}</li>
+            <li><strong>Time:</strong> {{ meeting_details.time or 'Not set' }}</li>
+            <li><strong>Location:</strong> {{ meeting_details.location or 'Not set' }}</li>
+        </ul>
+    </div>
+
+    <div class="summary-section">
+        <h2>Agenda Items</h2>
+        {% if agenda_items %}
+            <ul>
+                {% for item in agenda_items %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No agenda items added yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="summary-section">
+        <h2>Participants</h2>
+        {% if participants %}
+            <ul>
+                {% for participant in participants %}
+                    <li>{{ participant }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No participants added yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

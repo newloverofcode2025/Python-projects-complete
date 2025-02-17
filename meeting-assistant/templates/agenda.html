@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Agenda Creation{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Agenda Creation</h1>
+    <form action="{{ url_for('add_agenda_item') }}" method="POST" class="form">
+        <input type="text" id="new_agenda_item" name="new_agenda_item" placeholder="Enter agenda item" required>
+        <button type="submit">Add Item</button>
+    </form>
+    <div class="agenda-list">
+        <h2>Agenda Items</h2>
+        {% if agenda_items %}
+            <ul>
+                {% for item in agenda_items %}
+                    <li>
+                        {{ item }}
+                        <div class="actions">
+                            <a href="{{ url_for('remove_agenda_item', index=loop.index0) }}" class="btn-danger">Remove</a>
+                            <form action="{{ url_for('reorder_agenda') }}" method="POST" class="inline-form">
+                                <input type="hidden" name="from_index" value="{{ loop.index0 }}">
+                                <button type="submit" name="to_index" value="{{ loop.index0 - 1 }}">↑</button>
+                                <button type="submit" name="to_index" value="{{ loop.index0 + 1 }}">↓</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No agenda items added yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

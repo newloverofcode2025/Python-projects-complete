@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: #bb86fc;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    color: #bb86fc;
+}
+
+/* Forms */
+.form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+button {
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9c27b0;
+}
+
+/* Agenda List */
+.agenda-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.agenda-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #2e2e2e;
+    border-radius: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-danger {
+    background-color: #cf6679;
+    color: #121212;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    background-color: #b00020;
+}
+
+/* Participant List */
+.participant-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.participant-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #2e2e2e;
+    border-radius: 4px;
+}
+
+/* Summary Page */
+.summary-section {
+    margin-bottom: 1.5rem;
+}
+
+.summary-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}

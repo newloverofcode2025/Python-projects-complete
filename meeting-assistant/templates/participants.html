@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Participants{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Participants</h1>
+    <form action="{{ url_for('participants') }}" method="POST" class="form">
+        <input type="text" id="new_participant" name="new_participant" placeholder="Enter participant name" required>
+        <button type="submit">Add Participant</button>
+    </form>
+    <div class="participant-list">
+        <h2>Participant List</h2>
+        {% if participants %}
+            <ul>
+                {% for participant in participants %}
+                    <li>
+                        {{ participant }}
+                        <a href="{{ url_for('remove_participant', index=loop.index0) }}" class="btn-danger">Remove</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No participants added yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
