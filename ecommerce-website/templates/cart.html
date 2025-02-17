@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Your Cart</h1>
+    {% if cart_items %}
+        <ul>
+            {% for item in cart_items %}
+                <li>
+                    {{ item.name }} - ${{ "%.2f"|format(item.price) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total: ${{ "%.2f"|format(total_price) }}</p>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

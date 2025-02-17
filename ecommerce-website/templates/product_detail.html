@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ product.name }}</h1>
+    <div class="rating">
+        {% for _ in range(product.rating // 1) %}
+            <span>⭐</span>
+        {% endfor %}
+        <span>({{ product.rating }})</span>
+    </div>
+    <div class="product-images">
+        {% for image in product.images %}
+            <img src="{{ image }}" alt="{{ product.name }} image" class="product-image">
+        {% endfor %}
+    </div>
+    <p>{{ product.description }}</p>
+    <p class="price">${{ "%.2f"|format(product.price) }}</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <button type="submit">Add to Cart</button>
+    </form>
+</div>
+{% endblock %}
